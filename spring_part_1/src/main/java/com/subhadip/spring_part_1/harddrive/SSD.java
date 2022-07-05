@@ -1,14 +1,12 @@
 package com.subhadip.spring_part_1.harddrive;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope(value="prototype")
 
 public class SSD {
-  private int storage;
-  private String company;
+  private int storage=500;
+  private String company="HP";
 
   public SSD() {
     super();
