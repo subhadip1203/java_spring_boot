@@ -1,10 +1,10 @@
-package com.subhadip.spring_part_1;
+package com.subhadip.pahari.spring1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringPart1ApplicationTests {
+class Spring1ApplicationTests {
 
 	@Test
 	void contextLoads() {
