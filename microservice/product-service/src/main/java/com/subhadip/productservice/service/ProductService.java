@@ -16,17 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class ProductService {
 
     private final ProductRepository productRepository;
-
-    public void createProduct(ProductRequestDTO productRequest) {
-        Product product = Product.builder()
-                .name(productRequest.getName())
-                .description(productRequest.getDescription())
-                .price(productRequest.getPrice())
-                .build();
-        productRepository.save(product);
-
-    }
-
+    
     private ProductResponseDTO mapToProductResponseDTO(Product dbProduct) {
         ProductResponseDTO productResponse = ProductResponseDTO.builder()
                 .id(dbProduct.getId())
@@ -36,6 +26,18 @@ public class ProductService {
                 .build();
         return productResponse;
     }
+    
+    public ProductResponseDTO createProduct(ProductRequestDTO productRequest) {
+        Product product = Product.builder()
+                .name(productRequest.getName())
+                .description(productRequest.getDescription())
+                .price(productRequest.getPrice())
+                .build();
+        productRepository.save(product);
+        return mapToProductResponseDTO(product);
+
+    }
+
 
     public List<ProductResponseDTO> getAllProduct() {
         List<Product> dbProducts = productRepository.findAll();
